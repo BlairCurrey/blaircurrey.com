@@ -1,0 +1,37 @@
+body { 
+    /* font-family: 'Alata', sans-serif; */
+    /* font-family: 'Roboto Slab', serif; */
+    padding-top: 70px; 
+    font-size: 20px;
+}
+
+#navigation {
+    border-bottom: 1px solid lightgray;
+    box-shadow: 0 1px 3px lightgray;
+}
+
+#education{ font-size: 1.1rem; }
+
+/* Need to center image in row if image is fixed width */
+#profile-headshot { 
+    margin: auto;    
+    display: block;
+    width: 225px; 
+    max-width: 100%;
+}
+
+/* Icon colors */
+i:hover{ color: black; transform: rotate(10deg); }
+#github{ color: #2ea44f; }
+#linkedin{ color: rgb(0, 0, 240); }
+#email{ color: rgb(240, 0, 0); }
+
+.card{
+    height: 375px;
+}
+
+.card-img-overlay{ 
+    background-color: black;
+    opacity: 0; 
+}
+.card-img-overlay:hover{ opacity: 0.5; }

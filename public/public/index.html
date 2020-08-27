@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Personal website for Blair Currey">
+		<meta name="author" content="Blair Currey">
+		<meta name="keywords" content="Blair, Currey, portfolio">
+    
+    <!-- Style -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@531&display=swap" rel="stylesheet"> -->
+    <title>Blair Currey</title>
+  </head>
+  <body>
+    <header>
+      <!-- Navigation -->
+      <div class="fixed-top" id="navigation">
+        <nav class="navbar navbar-expand-md navbar-default navbar-light bg-white container">
+          <a aria-current="page" href="index.html" class="navbar-brand pl-0">Blair Currey</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <span class="navbar-toggler-icon"></span> -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false">
+              <title>Menu</title>
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
+            </svg>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <div class="navbar-nav align-items-center ml-auto">
+              <a class="nav-item nav-link mr-4" href="#">Projects</a>
+              <a class="nav-item nav-link mr-4" href="#">Blog</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main role="main" class="mt-5">
+      <!-- Landing -->
+      <div class="container" id="landing">
+        <div class="row">
+          <!-- Profile -->
+          <div class="col-12 col-md-4 order-md-2" id="profile">
+            <!-- Image -->
+            <img src="assets/headshot-lg.jpg" class ="img-responsive rounded-circle" id="profile-headshot" alt="Headshot of Blair">
+            <!-- Icons -->
+            <div id="profile-icons" class="text-center mt-3">
+              <a href="https://github.com/BlairCurrey" id="github" target="_blank">
+                <i class="fab fa-github fa-2x px-1" data-toggle="tooltip" title="Explore my work on GitHub"></i></a>
+              <a href="https://www.linkedin.com/in/blair-currey/" id="linkedin" target="_blank">
+                <i class="fab fa-linkedin fa-2x px-1" data-toggle="tooltip" title="Connect on LinkedIn"></i></a>
+              <a href="mailto:curreyb88@gmail.com" id="email">
+                <i class="fas fa-envelope fa-2x px-1" data-toggle="tooltip" title="Email me"></i></a>
+            </div>
+          </div>
+          <!-- Landing Copy -->
+          <div class="col12 col-md-8 order-md-1 my-auto" id="landing-copy">
+            <h1 class="landing-title mt-3">Hello, I'm Blair</h1>
+            <p>I am a computer science student at the University of London. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet rem labore iusto sint autem iste recusandae non. Veniam quibusdam nihil doloribus harum ipsa dolor minus et nam voluptate accusamus! Perspiciatis.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Projects -->
+      <div class="d-flex justify-content-start mt-5" id="projects">
+        <div class="container">
+          <h1>Projects</h1>
+          <div class="row">
+            <div class="column col-lg-6 col-sm-12 mt-2">
+              <div class="card text-white">
+                  <img class="card-img px-3 my-auto" src="assets/commute-dashboard.gif" alt="Card image">
+                <div class="card-img-overlay">
+                  <h3 class="card-title">Commute Dashboard</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="column col-lg-6 col-sm-12 mt-2">
+              <div class="card text-white">
+                <img class="card-img px-3 my-auto" src="assets/map-gen.png" alt="Card image">
+                <div class="card-img-overlay">
+                  <h3 class="card-title">Map Generator</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <!-- Bootstrap requirements: jquery, popper, bootstrap js plugins -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="js/index.js"></script>
+</html>
