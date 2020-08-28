@@ -1,4 +1,7 @@
-*.drawio
-*.zip
+# Miscellaneous files in root
 todo.txt
-education-snippet.html
+
+# Everything in node_modules
+node_modules/*
+# Except
+# !node_modules/bootstrap

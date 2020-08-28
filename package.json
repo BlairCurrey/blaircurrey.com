@@ -1,0 +1,24 @@
+{
+  "name": "blaircurrey.com",
+  "version": "1.0.0",
+  "description": "Personal website for Blair Currey",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss/main.scss -o scss/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlairCurrey/blaircurrey.com.git"
+  },
+  "author": "Blair Currey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlairCurrey/blaircurrey.com/issues"
+  },
+  "homepage": "https://github.com/BlairCurrey/blaircurrey.com#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "node-sass": "^4.14.1"
+  }
+}

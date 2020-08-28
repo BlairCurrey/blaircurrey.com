@@ -1,6 +1,6 @@
-body { 
-    /* font-family: 'Alata', sans-serif; */
-    /* font-family: 'Roboto Slab', serif; */
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
     padding-top: 70px; 
     font-size: 20px;
 }
@@ -10,9 +10,6 @@ body {
     box-shadow: 0 1px 3px lightgray;
 }
 
-#education{ font-size: 1.1rem; }
-
-/* Need to center image in row if image is fixed width */
 #profile-headshot { 
     margin: auto;    
     display: block;
@@ -20,7 +17,6 @@ body {
     max-width: 100%;
 }
 
-/* Icon colors */
 i:hover{ color: black; transform: rotate(10deg); }
 #github{ color: #2ea44f; }
 #linkedin{ color: rgb(0, 0, 240); }
@@ -28,41 +24,6 @@ i:hover{ color: black; transform: rotate(10deg); }
 
 .card{
     height: 375px;
-}
-
-
-/* Original centering technique - does not handle different
-types of aspet ratios well (square or tall in particular) */
-/* .img-wrapper{
-    max-width: 70%;
-    max-height: 100%;
-    margin: auto;
-}
-
-.card-img{
-    width: 100%;
-    height: 100%;
-}*/
-
-/* Improved - uses an image wrapper and margin for centering */
-/* .img-wrapper{
-    display: flex;
-    max-width: 70%;
-    max-height: 85%;
-    margin: auto;
-}
-
-    .card-img{
-    max-width: 100%;
-    width: auto;
-    max-height: 100%;
-    margin: auto;
-} */
-
-/* maybe even improved more - makes the card a flex container and centers
-.img-wrapper with .card's justify content and align items. */
-
-.card{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,7 +42,6 @@ types of aspet ratios well (square or tall in particular) */
     margin: auto;
 }
 
-/* https://www.w3schools.com/css/tryit.asp?filename=trycss3_transition1 */
 .card-img-overlay{ 
     background-color: black;
     opacity: 0;
