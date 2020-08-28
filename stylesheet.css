@@ -30,8 +30,78 @@ i:hover{ color: black; transform: rotate(10deg); }
     height: 375px;
 }
 
+
+/* Original centering technique - does not handle different
+types of aspet ratios well (square or tall in particular) */
+/* .img-wrapper{
+    max-width: 70%;
+    max-height: 100%;
+    margin: auto;
+}
+
+.card-img{
+    width: 100%;
+    height: 100%;
+}*/
+
+/* Improved - uses an image wrapper and margin for centering */
+/* .img-wrapper{
+    display: flex;
+    max-width: 70%;
+    max-height: 85%;
+    margin: auto;
+}
+
+    .card-img{
+    max-width: 100%;
+    width: auto;
+    max-height: 100%;
+    margin: auto;
+} */
+
+/* maybe even improved more - makes the card a flex container and centers
+.img-wrapper with .card's justify content and align items. */
+
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-wrapper{
+    display: flex;
+    max-width: 70%;
+    max-height: 75%;
+}
+
+.card-img{
+    max-width: 100%;
+    width: auto;
+    max-height: 100%;
+    margin: auto;
+}
+
+/* https://www.w3schools.com/css/tryit.asp?filename=trycss3_transition1 */
 .card-img-overlay{ 
     background-color: black;
-    opacity: 0; 
+    opacity: 0;
+    padding: .5em 1em;
 }
+
 .card-img-overlay:hover{ opacity: 0.5; }
+
+.card-overlay-links{	
+    position : absolute;
+    bottom : 0;
+}
+
+footer {
+    border-top: 1px solid lightgray;
+    box-shadow: 0 -1px 3px lightgrey;
+}
+
+.designed-by {
+    font-size: .75em;
+    text-decoration: none;
+    color: black;
+}
