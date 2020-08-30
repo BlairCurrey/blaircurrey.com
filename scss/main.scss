@@ -5,32 +5,35 @@
     --light-text: #222430;
     --light-bg: white;
     --light-border: lightgray;
-    --light-github-color: rgb(50, 220, 50);
-    --light-linkedin-color: rgb(50, 50, 220);
-    --light-email-color: rgb(220, 50, 50);
-    --light-icon-hover-color: var(--light-text);
+    --light-github: rgb(50, 220, 50);
+    --light-linkedin: rgb(50, 50, 220);
+    --light-email: rgb(220, 50, 50);
+    --light-icon-hover: var(--light-text);
     --light-pic-shadow: black;
+    --light-hamburger: var(--light-text);
   
     /* Dark mode */
     --dark-text: #f7f7f7;
     --dark-bg: #222430;
     --dark-border: rgb(64, 59, 94);
-    --dark-github-color: rgb(100, 220, 100);
-    --dark-linkedin-color: rgb(100, 100, 220);
-    --dark-email-color: rgb(220, 100, 100);
-    --dark-icon-hover-color: var(--dark-text);
+    --dark-github: rgb(100, 220, 100);
+    --dark-linkedin: rgb(100, 100, 220);
+    --dark-email: rgb(220, 100, 100);
+    --dark-icon-hover: var(--dark-text);
     --dark-pic-shadow: var(--dark-border);
+    --dark-hamburger: var(--dark-text);
       
     /* Default mode */
     --text-color: var(--light-text);
     --bg-color: var(--light-bg);
     --border-color: var(--light-border);
-    --github-color: var(--light-github-color);
-    --linkedin-color: var(--light-linkedin-color);
-    --email-color: var(--light-email-color);
-    --icon-hover-color: var(--light-icon-hover-color);
+    --github-color: var(--light-github);
+    --linkedin-color: var(--light-linkedin);
+    --email-color: var(--light-email);
+    --icon-hover-color: var(--light-icon-hover);
     --swich-shadow-color: var(--dark-bg);
     --pic-shadow-color: var(--light-pic-shadow);
+    --hamburger-color: var(--light-hamburger);
     --transition: color .2s, background-color .2s;
 }
 
@@ -39,12 +42,13 @@
     --text-color: var(--dark-text);
     --bg-color: var(--dark-bg);
     --border-color: var(--dark-border);
-    --github-color: var(--dark-github-color);
-    --linkedin-color: var(--dark-linkedin-color);
-    --email-color: var(--dark-email-color);
-    --icon-hover-color: var(--dark-icon-hover-color);
+    --github-color: var(--dark-github);
+    --linkedin-color: var(--dark-linkedin);
+    --email-color: var(--dark-email);
+    --icon-hover-color: var(--dark-icon-hover);
     --swich-shadow-color: var(--light-bg);
     --pic-shadow-color: var(--dark-pic-shadow);
+    --hamburger-color: var(--dark-hamburger);
 }
 
 // hide theme switch checkbox ('display: none' is not accessible)
@@ -88,6 +92,8 @@ body{
     border-bottom: var(--border-color);
     box-shadow: 0px 1px 15px var(--border-color);
 }
+
+.navbar svg{ color: var(--hamburger-color);}
 
 // Profile
 #profile-headshot { 
