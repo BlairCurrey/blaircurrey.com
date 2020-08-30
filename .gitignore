@@ -1,5 +1,6 @@
 # Miscellaneous files in root
 todo.txt
+resources.txt
 
 # Everything in node_modules
 node_modules/*
