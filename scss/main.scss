@@ -1,68 +1,142 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-body {
-    padding-top: 70px; 
+:root {
+    /* Light mode */
+    --light-text: #222430;
+    --light-bg: white;
+    --light-border: lightgray;
+    --light-github-color: rgb(50, 220, 50);
+    --light-linkedin-color: rgb(50, 50, 220);
+    --light-email-color: rgb(220, 50, 50);
+    --light-icon-hover-color: var(--light-text);
+    --light-pic-shadow: black;
+  
+    /* Dark mode */
+    --dark-text: #f7f7f7;
+    --dark-bg: #222430;
+    --dark-border: rgb(64, 59, 94);
+    --dark-github-color: rgb(100, 220, 100);
+    --dark-linkedin-color: rgb(100, 100, 220);
+    --dark-email-color: rgb(220, 100, 100);
+    --dark-icon-hover-color: var(--dark-text);
+    --dark-pic-shadow: var(--dark-border);
+      
+    /* Default mode */
+    --text-color: var(--light-text);
+    --bg-color: var(--light-bg);
+    --border-color: var(--light-border);
+    --github-color: var(--light-github-color);
+    --linkedin-color: var(--light-linkedin-color);
+    --email-color: var(--light-email-color);
+    --icon-hover-color: var(--light-icon-hover-color);
+    --swich-shadow-color: var(--dark-bg);
+    --pic-shadow-color: var(--light-pic-shadow);
+    --transition: color .2s, background-color .2s;
+}
+
+/* Switched mode */
+#theme-switch:checked ~ #theme-body {
+    --text-color: var(--dark-text);
+    --bg-color: var(--dark-bg);
+    --border-color: var(--dark-border);
+    --github-color: var(--dark-github-color);
+    --linkedin-color: var(--dark-linkedin-color);
+    --email-color: var(--dark-email-color);
+    --icon-hover-color: var(--dark-icon-hover-color);
+    --swich-shadow-color: var(--light-bg);
+    --pic-shadow-color: var(--dark-pic-shadow);
+}
+
+#theme-switch{
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+#theme-body {
+    height: 100%;
+    padding-top: 70px;
+
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+//Misc
+a{ color: inherit;}
+// hide theme switch checkbox ('display: none' is not accessible)
+#theme-switch-icon{ margin: 0; cursor: pointer;}
+#theme-switch-icon:hover{ text-shadow: 0 0 15px var(--swich-shadow-color);}
+
+//Body
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: var(--transition);
     font-size: 20px;
 }
 
+//Nav
+#navigation, .navbar{
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: var(--transition);
+}
 #navigation {
-    border-bottom: 1px solid lightgray;
-    box-shadow: 0 1px 3px lightgray;
+    border-bottom: var(--border-color);
+    box-shadow: 0px 1px 15px var(--border-color);
 }
 
+// Profile
 #profile-headshot { 
     margin: auto;    
     display: block;
     width: 225px; 
     max-width: 100%;
+    box-shadow: 0 0 10px 1px var(--pic-shadow-color);
 }
+#profile-icons i:hover{ color: var(--icon-hover-color); transform: rotate(10deg);}
+#github{ color: var(--github-color); }
+#linkedin{ color: var(--linkedin-color);}
+#email{ color: var(--email-color); }
 
-i:hover{ color: black; transform: rotate(10deg); }
-#github{ color: #2ea44f; }
-#linkedin{ color: rgb(0, 0, 240); }
-#email{ color: rgb(240, 0, 0); }
 
+//Cards
 .card{
+    border-color: var(--border-color);
+    background: var(--bg-color);
+    transition: var(--transition);
     height: 375px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .img-wrapper{
     display: flex;
     max-width: 70%;
     max-height: 75%;
 }
-
 .card-img{
     max-width: 100%;
     width: auto;
     max-height: 100%;
     margin: auto;
 }
-
+.card-img-overlay:hover{ opacity: 0.5; }
 .card-img-overlay{ 
     background-color: black;
     opacity: 0;
     padding: .5em 1em;
     transition: opacity 0.75s;
+    box-shadow: 0px 0px 5px 1px var(--text-color);
 }
+.card-overlay-links{ position : absolute; bottom : 0;}
 
-.card-img-overlay:hover{ opacity: 0.5; }
-
-.card-overlay-links{	
-    position : absolute;
-    bottom : 0;
-}
-
+//Footer
 footer {
-    border-top: 1px solid lightgray;
-    box-shadow: 0 -1px 3px lightgrey;
+    border-top: var(--border-color);
+    box-shadow: 0px -1px 15px var(--border-color);
 }
-
-.designed-by {
-    font-size: .75em;
-    text-decoration: none;
-    color: black;
-}
+.designed-by {font-size: .75em;text-decoration: none;}
