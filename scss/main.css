@@ -7214,7 +7214,7 @@ a.text-dark:hover, a.text-dark:focus {
   color: var(--text-color);
   transition: var(--transition); }
 
-a {
+nav a, footer a {
   color: inherit; }
 
 #theme-switch-icon {
