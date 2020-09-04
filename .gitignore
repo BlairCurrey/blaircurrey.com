@@ -1,9 +1,8 @@
 # Miscellaneous files in root
 todo.txt
 resources.txt
-main-backup.css
 
 # Everything in node_modules
-node_modules/*
+node_modules
 # Except
 # !node_modules/bootstrap
