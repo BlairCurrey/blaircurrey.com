@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,16 +10,16 @@
     <meta name="keywords" content="Blair, Currey, portfolio">
     
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/us-flag-152.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/us-flag-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/us-flag-16.png">
     
     <!-- Style -->
-		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
-    <link rel="stylesheet" type="text/css" href="scss/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
     <title>Blair Currey</title>
+    
   </head>
   <body>
     <input type="checkbox" id="theme-switch">
@@ -28,7 +30,6 @@
           <nav class="navbar navbar-expand-md navbar-default container">
             <a aria-current="page" href="/" class="navbar-brand pl-0">Blair Currey</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-              <!-- <span class="navbar-toggler-icon"></span> -->
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false">
                 <title>Menu</title>
                 <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
@@ -36,8 +37,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbar">
               <div class="navbar-nav align-items-center ml-auto">
-                <a class="nav-item nav-link mx-2" href="#projects">Projects</a>
-                <!-- <a class="nav-item nav-link mx-2" href="#">Blog</a> -->
+                <a class="nav-item nav-link mx-2" href="/#projects">Projects</a>
+                
                 <label class=" mx-2"id="theme-switch-icon" for="theme-switch"><i class="fas fa-adjust"></i></label>
               </div>
             </div>
@@ -45,137 +46,132 @@
         </div>
       </header>
       <main role="main" class="mt-5 mb-5">
-        <!-- Landing -->
-        <div class="container" id="landing">
-          <div class="row">
-            <!-- Profile -->
-            <div class="col-12 col-md-4 order-md-2" id="profile">
-              <!-- Image -->
-              <div class="float-md-right">
-                <img src="assets/headshot.jpg" class ="img-responsive rounded-circle" id="profile-headshot" alt="Headshot of Blair">
-                <!-- Icons -->
-                <div id="profile-icons" class="text-center mt-3">
-                  <a href="https://github.com/BlairCurrey" id="github" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github fa-2x px-1" data-toggle="tooltip" title="Explore my work on GitHub"></i></a>
-                  <a href="https://www.linkedin.com/in/blair-currey/" id="linkedin" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin fa-2x px-1" data-toggle="tooltip" title="Connect on LinkedIn"></i></a>
-                  <a href="mailto:curreyb88@gmail.com" id="email">
-                    <i class="fas fa-envelope fa-2x px-1" data-toggle="tooltip" title="Email me"></i></a>
-                </div>
-              </div>
+        
+        <!--CONTENT -->
+        
+
+<div class="container">
+  <div class="row">
+    <!-- Profile -->
+    <div class="col-12 col-md-4 order-md-2" id="profile">
+      <!-- Image -->
+      <div class="float-md-right">
+        <img src="/img/headshot.jpg" class ="img-responsive rounded-circle" id="profile-headshot" alt="Headshot of Blair">
+        <!-- Icons -->
+        <div id="profile-icons" class="text-center mt-3">
+          <a href="https://github.com/BlairCurrey" id="github" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github fa-2x px-1" data-toggle="tooltip" title="Explore my work on GitHub"></i></a>
+          <a href="https://www.linkedin.com/in/blair-currey/" id="linkedin" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin fa-2x px-1" data-toggle="tooltip" title="Connect on LinkedIn"></i></a>
+          <a href="mailto:curreyb88@gmail.com" id="email">
+            <i class="fas fa-envelope fa-2x px-1" data-toggle="tooltip" title="Email me"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- Copy -->
+    <div class="col12 col-md-8 order-md-1 my-auto">
+      <h1 class="mt-3">Hello, I'm Blair</h1>
+      <p>
+          I am a computer science student at the <a href="https://london.ac.uk/courses/computer-science">University of London</a> 
+          and aspiring software developer located in the New York City area. I have prior experience in agile manufacturing and a B.A. 
+          in Philosophy & Religion from <a href="https://www.wabash.edu/">Wabash College</a>. My personal interests include
+          cooking and exploring the great outdoors.
+      </p>
+    </div>
+  </div>
+</div>
+<span id="projects"></span>
+<div class="d-flex justify-content-start mt-5">
+  <div class="container">
+    <h1 class="mt-3">Projects</h1>
+    <div class="row">
+      
+        <div class="column col-lg-6 col-sm-12 mt-2">
+          <div class="card text-white">
+            <div class="img-wrapper">
+              <img class="card-img my-auto" src="/img/projects/lake-gen.jpg" alt="Project card image">
             </div>
-            <!-- Landing Copy -->
-            <div class="col12 col-md-8 order-md-1 my-auto" id="landing-copy">
-              <h1 class="landing-title mt-3">Hello, I'm Blair</h1>
-              <p>I am a computer science student at the <a href="https://london.ac.uk/courses/computer-science">University of London</a> 
-                 and aspiring software developer located in the New York City area. I have prior experience in agile manufacturing and a B.A. 
-                 in Philosophy & Religion from <a href="https://www.wabash.edu/">Wabash College</a>. My personal interests include
-                 cooking and exploring the great outdoors.
-              </p>
+            <div class="card-img-overlay">
+              <h3 class="card-title">Lake Generator</h3>
+              <div class="card-overlay-links"><a href="https://github.com/BlairCurrey/lake-generator" target="_blank" rel="noopener noreferrer"> See details on Github </a>
+                  <br></div>
             </div>
           </div>
         </div>
-        <span id="projects"></span>
-        <!-- Projects -->
-        <div class="d-flex justify-content-start mt-5">
-          <div class="container">
-            <h1 class="mt-3">Projects</h1>
-            <div class="row">
-              <!-- Card -->
-              <div class="column col-lg-6 col-sm-12 mt-2">
-                <div class="card text-white">
-                  <div class="img-wrapper">
-                    <img class="card-img my-auto" src="assets/lake-gen.jpg" alt="Card image">
-                  </div>
-                  <div class="card-img-overlay">
-                    <h3 class="card-title">Lake Generator</h3>
-                    <div class="card-overlay-links">
-                      <a href="https://github.com/BlairCurrey/lake-generator" target="_blank" rel="noopener noreferrer">See details on Github</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Card -->
-              <div class="column col-lg-6 col-sm-12 mt-2">
-                <div class="card text-white">
-                  <div class="img-wrapper">
-                    <img class="card-img my-auto" src="assets/commute-dashboard.gif" alt="Card image">
-                  </div>
-                  <div class="card-img-overlay">
-                    <h3 class="card-title">Commute Dashboard</h3>
-                    <div class="card-overlay-links">
-                      <a href="https://github.com/BlairCurrey/commute-dashboard" target="_blank" rel="noopener noreferrer">See details on Github</a>
-                      <br>
-                      <a href="https://blairc-commute-dash.herokuapp.com/dashboard.html?lat1=40.844972&lon1=-74.079847&lat2=40.815750&lon2=-73.950133&depart_id=WR&destination_str=Hoboken" target="_blank" rel="noopener noreferrer">See in action on Heroku</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Card -->
-              <div class="column col-lg-6 col-sm-12 mt-2">
-                <div class="card text-white">
-                  <div class="img-wrapper">
-                    <img class="card-img my-auto" src="assets/dj-juce.jpg" alt="Card image">
-                  </div>
-                  <div class="card-img-overlay">
-                    <h3 class="card-title">DJ GUI App</h3>
-                    <div class="card-overlay-links">
-                      <a href="https://github.com/BlairCurrey/DJ-juce" target="_blank" rel="noopener noreferrer">See details on Github</a>
-                      <br>
-                      <a href="https://www.youtube.com/watch?v=iOKKWV8OHlw&t=2s" target="_blank" rel="noopener noreferrer">Watch Demo on Youtube</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Card -->
-              <div class="column col-lg-6 col-sm-12 mt-2">
-                <div class="card text-white">
-                  <div class="img-wrapper">
-                    <img class="card-img my-auto" src="assets/nutrition-log.jpg" alt="Card image">
-                  </div>
-                  <div class="card-img-overlay">
-                    <h3 class="card-title">Nutrition Log</h3>
-                    <div class="card-overlay-links">
-                      <a href="https://github.com/BlairCurrey/nutrition-log" target="_blank" rel="noopener noreferrer">See details on Github</a>
-                      <br>
-                      <a href="https://blairc-nutrition-log.herokuapp.com/" target="_blank" rel="noopener noreferrer">See in action on Heroku</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Card -->
-              <div class="column col-lg-6 col-sm-12 mt-2">
-                <div class="card text-white">
-                  <div class="img-wrapper">
-                    <img class="card-img my-auto" src="assets/data-vis.jpg" alt="Card image">
-                  </div>
-                  <div class="card-img-overlay">
-                    <h3 class="card-title">Data Visualization</h3>
-                    <div class="card-overlay-links">
-                      <a href="https://github.com/BlairCurrey/data-vis" target="_blank" rel="noopener noreferrer">See details on Github</a>
-                      <br>
-                      <a href="https://blaircurrey.github.io/data-vis/" target="_blank" rel="noopener noreferrer">See in action on Github</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Card -->
-              <div class="column col-lg-6 col-sm-12 mt-2">
-                <div class="card text-white">
-                  <div class="img-wrapper">
-                    <img class="card-img my-auto" src="assets/yt-rabbit-hole.jpg" alt="Card image">
-                  </div>
-                  <div class="card-img-overlay">
-                    <h3 class="card-title">YouTube Rabbithole</h3>
-                    <div class="card-overlay-links">
-                      <a href="https://github.com/BlairCurrey/youtube-rabbithole" target="_blank" rel="noopener noreferrer">See details on Github</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      
+        <div class="column col-lg-6 col-sm-12 mt-2">
+          <div class="card text-white">
+            <div class="img-wrapper">
+              <img class="card-img my-auto" src="/img/projects/commute-dashboard.gif" alt="Project card image">
+            </div>
+            <div class="card-img-overlay">
+              <h3 class="card-title">Commute Dashboard</h3>
+              <div class="card-overlay-links"><a href="https://github.com/BlairCurrey/commute-dashboard" target="_blank" rel="noopener noreferrer"> See details on Github </a>
+                  <br><a href="https://blairc-commute-dash.herokuapp.com/dashboard.html?lat1=40.844972&amp;lon1=-74.079847&amp;lat2=40.815750&amp;lon2=-73.950133&amp;depart_id=WR&amp;destination_str=Hoboken" target="_blank" rel="noopener noreferrer"> Try it out </a>
+                  <br></div>
             </div>
           </div>
         </div>
+      
+        <div class="column col-lg-6 col-sm-12 mt-2">
+          <div class="card text-white">
+            <div class="img-wrapper">
+              <img class="card-img my-auto" src="/img/projects/dj-juce.jpg" alt="Project card image">
+            </div>
+            <div class="card-img-overlay">
+              <h3 class="card-title">DJ GUI App</h3>
+              <div class="card-overlay-links"><a href="https://github.com/BlairCurrey/DJ-juce" target="_blank" rel="noopener noreferrer"> See details on Github </a>
+                  <br><a href="https://www.youtube.com/watch?v=iOKKWV8OHlw&amp;t=2s" target="_blank" rel="noopener noreferrer"> Watch Demo on Youtube </a>
+                  <br></div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="column col-lg-6 col-sm-12 mt-2">
+          <div class="card text-white">
+            <div class="img-wrapper">
+              <img class="card-img my-auto" src="/img/projects/nutrition-log.jpg" alt="Project card image">
+            </div>
+            <div class="card-img-overlay">
+              <h3 class="card-title">Nutrition Log</h3>
+              <div class="card-overlay-links"><a href="https://github.com/BlairCurrey/nutrition-log" target="_blank" rel="noopener noreferrer"> See details on Github </a>
+                  <br><a href="https://blairc-nutrition-log.herokuapp.com/" target="_blank" rel="noopener noreferrer"> Try it out </a>
+                  <br></div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="column col-lg-6 col-sm-12 mt-2">
+          <div class="card text-white">
+            <div class="img-wrapper">
+              <img class="card-img my-auto" src="/img/projects/data-vis.jpg" alt="Project card image">
+            </div>
+            <div class="card-img-overlay">
+              <h3 class="card-title">Data Visualization</h3>
+              <div class="card-overlay-links"><a href="https://github.com/BlairCurrey/data-vis" target="_blank" rel="noopener noreferrer"> See details on Github </a>
+                  <br><a href="https://blaircurrey.github.io/data-vis/" target="_blank" rel="noopener noreferrer"> Try it out </a>
+                  <br></div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="column col-lg-6 col-sm-12 mt-2">
+          <div class="card text-white">
+            <div class="img-wrapper">
+              <img class="card-img my-auto" src="/img/projects/yt-rabbit-hole.jpg" alt="Project card image">
+            </div>
+            <div class="card-img-overlay">
+              <h3 class="card-title">YouTube Rabbithole</h3>
+              <div class="card-overlay-links"><a href="https://github.com/BlairCurrey/youtube-rabbithole" target="_blank" rel="noopener noreferrer"> See details on Github </a>
+                  <br></div>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
       </main>
       <!-- Footer -->
       <footer class="page-footer">
@@ -194,5 +190,5 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  <script src="js/index.js"></script>
+  <script src="/js/main.js"></script>
 </html>
