@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178248960-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-178248960-1');
+    </script>
+
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Personal website for Blair Currey">
+		<meta name="author" content="Blair Currey">
+    <meta name="keywords" content="Blair, Currey, portfolio">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/us-flag-152.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/us-flag-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/us-flag-16.png">
+    
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+    <title>Blair Currey</title>
+    
+  </head>
+  <body>
+    <input type="checkbox" id="theme-switch">
+    <div id="theme-body">
+      <header>
+        <!-- Navigation -->
+        <div class="fixed-top" id="navigation">
+          <nav class="navbar navbar-expand-md navbar-default container">
+            <a aria-current="page" href="/" class="navbar-brand pl-0">Blair Currey</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false">
+                <title>Menu</title>
+                <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
+              </svg>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+              <div class="navbar-nav align-items-center ml-auto">
+                <a class="nav-item nav-link mx-2" href="/#projects">Projects</a>
+                <a class="nav-item nav-link mx-2" href="/posts">Blog</a>
+                <label class="mx-2"id="theme-switch-icon" for="theme-switch"><i class="fas fa-adjust"></i></label>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <main role="main" class="mt-5 mb-5">
+        
+        <!--CONTENT -->
+        <div class="container" id="article">
+    <h1 class="mb-0">Revisiting an Old Project</h1>
+    <time datetime="2020-Sep-18">09/18/2020</time>
+    <div id="article-body">
+        <p><p>In the fall of 2019 I finished the first semester of my computer science degree. Armed with the facts of <em>Intro to Programming I</em> and the basics of python I started on my first self-guided programming project — procedurally generated images of lakes using Perlin noise. The project worked, but as you can probably guess, it wasn't pretty.</p>
+<p>The code that is. I was pleased with the lakes.</p>
+<p><img src="/img/posts/1-lake1.jpg" alt="Lake"></p>
+<p>Two years later I have finished <em>Object-Oriented Programming</em>, <em>Data Structures and Algorithms I &amp; II</em>, and revisited  this project from a new vantage point. I will detail the original state of the program's structure and runtime, analyze the problematic areas and share my solutions. For more background information on the project and to see the improved version you can visit the <a href="https://github.com/BlairCurrey/lake-generator">GitHub repository here</a>.</p>
+<p>It's been a long time since I worked on this program so I began by asking myself:</p>
+<h3 id="what-is-the-program-doing%3F">What is the program doing?</h3>
+<ul>
+<li>Sets a bunch of global parameters (image size, noise parameters, etc).</li>
+<li>loads filter, sets to grayscale, and normalizes range</li>
+<li>makes noise matrix. for each pixel:
+<ul>
+<li>generates a noise value from global parameters</li>
+<li>applies filter</li>
+<li>generates and adds more noise to current pixel's value 4 more     times <em>(why??)</em></li>
+</ul>
+</li>
+<li>constrains matrix to range between 0.0 and 1.0</li>
+<li>adds land bias</li>
+<li>translates each pixel's value to an RGB value</li>
+<li>makes image from matrix, shows, saves</li>
+</ul>
+<p>You can see the entirety of this version <a href="https://gist.github.com/BlairCurrey/b944c14c900a4c7f996ecbb463f0d3a3">in this GitHub gist</a>. Although it's not pretty, I was very inexperienced at the time and remember how challenging it was. I was quite pleased to simply produce something that did what I intended, as slow and hacked together as it was.</p>
+<h3 id="main-conclusions">Main Conclusions</h3>
+<ul>
+<li>I loop through the matrix using nested for-loops 3 times. NumPy's much faster array methods could be used instead in some places.</li>
+<li>Not user friendly. Some functionality is turned off/on by commenting and settings are defined within the script. Customizable settings should be exposed to the user and input into our map making object.</li>
+<li>No encapsulation. The program can be refactored into a few classes</li>
+<li>Inconsistent style and bad practices. <code>filter</code> class shares the name with the <code>filter</code> keyword, unused variables, cryptic or inconsistently named variables, etc. What does <code>refine_world</code> do?</li>
+</ul>
+<h3 id="plan">Plan</h3>
+<p>I wanted to focus on optimizing speed first since I needed to run the program frequently to test my changes. I quickly refactored everything into one <code>noiseMap</code> class before focusing on the runtime. It's worth noting that most of the improvements came simply from making better use of NumPy, rather than some novel or complicated solution.</p>
+<p>After improving the runtime, I could go back and refactor this monolithic class. This would make it easier for me to improve functionality, such as letting the user define the configuration variables in a separate file.</p>
+<h3 id="methodology-for-measuring-runtime">Methodology for Measuring Runtime</h3>
+<p>Initially I thought about doing an asymptotic analysis but realized this would not be an effective way of measuring the difference. Stack Overflow user <em>hpaulj</em> explains it better than I can <a href="https://stackoverflow.com/questions/52201990/is-there-a-list-of-big-o-complexities-for-the-numpy-library">in this answer,</a> where he says:</p>
+<blockquote>
+<p>BigO complexity is not often used with Python and numpy. It's a measure of how the code scales with problem size. That's useful in a compiled language like C. But here the code is a mix of interpreted Python and compiled code. Both can have the same bigO, but the interpreted version will be orders of magnitude slower. That's why most of the SO questions about improving numpy speed, talk about 'removing loops' and 'vectorizing'.</p>
+</blockquote>
+<p>In our case we replace looping over the matrix in python with NumPy's methods, which also traverse each element. In terms of how they scale with input size (matrix height and width) they are completely equal. However, the NumPy implementation should be much faster in real time, so asymptotic analysis wouldn't capture the difference.</p>
+<p>I measured the time with <a href="https://docs.python.org/3.8/library/profile.html">cProfiler</a> instead. While time measurements are inexact, the execution time of the original code is large enough that this imprecision does not cloud comparisons with the runtime of the improved code. Still, it's worth noting that identical functions vary in runtime across executions.</p>
+<p>Here are the baseline results, filtered to show the most relevant bits:</p>
+<div class="table-responsive">
+<table class="table">
+<thead>
+<tr>
+<th style="text-align:center">Calls</th>
+<th style="text-align:center">Time</th>
+<th style="text-align:center">Per Call</th>
+<th style="text-align:center">Cumulative Time</th>
+<th style="text-align:center">filename:lineno(function)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.001</td>
+<td style="text-align:center">0.001</td>
+<td style="text-align:center">35.081</td>
+<td style="text-align:center">mapGen. py:23(__init__)</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">13.865</td>
+<td style="text-align:center">13.865</td>
+<td style="text-align:center">26.841</td>
+<td style="text-align:center">mapGen. py:52(make_noise)</td>
+</tr>
+<tr>
+<td style="text-align:center">8388608</td>
+<td style="text-align:center">12.976</td>
+<td style="text-align:center">0.000</td>
+<td style="text-align:center">12.976</td>
+<td style="text-align:center">{built-in method noise._perlin.noise3}</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">4.969</td>
+<td style="text-align:center">4.969</td>
+<td style="text-align:center">4.969</td>
+<td style="text-align:center">mapGen. py:101(add_color)</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1.529</td>
+<td style="text-align:center">1.529</td>
+<td style="text-align:center">1.529</td>
+<td style="text-align:center">{built-in method nt.system}</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1.489</td>
+<td style="text-align:center">1.489</td>
+<td style="text-align:center">1.489</td>
+<td style="text-align:center">mapGen. py:94(refine_world)       </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This shows the cumulative time to run the program was 35.081 seconds. Most of this comes from <code>make_noise</code> (26.841 seconds), which includes the pnoise function, with another chunk from <code>add_color</code> (4.969 seconds) and <code>refine_world</code> (1.489). The &quot;built-in&quot; methods are from imported modules, so they cannot be improved in my code. Let's take a look at these functions.</p>
+<h3 id="make_noise"><code>make_noise</code></h3>
+<script src="https://gist.github.com/BlairCurrey/aef90cd870cfdeaea750d21a29dd567c.js"></script>
+<p>In this function, we are creating an array full of zeroes then traversing through the height and width (<code>shape[0]</code> and <code>shape[1]</code>), which in this case is 1024 x 2048. For each of these positions, we are generating a noise value (line 10), subtracting the corresponding filter value (line 20), and then iterating 4 more times and adding more noise values (line 23). Thus, we call the pnoise.noise3 function 1024 x 2048 x 4 = 8,388,608 times, as seen in row 3 of our profiler result above.</p>
+<p>First, I wanted to see what the innermost loop was doing. We are already creating noise values and then subtracting our filter, so what difference does it make? It makes this function's runtime 4 times longer, so it better be important.</p>
+<p>The first picture results from including the additional noise, followed by a picture from the same seed that omits it.</p>
+<div class="row">
+    <div class="column col-lg-6 col-sm-12">
+        <img src="/img/posts/1-map-extra-noise.jpg"></img>
+    </div>
+    <div class="column col-lg-6 col-sm-12">
+        <img src="/img/posts/1-map-no-extra.jpg"></img>
+    </div>
+</div>
+<p>I see very little difference. The computationally cheaper one certainly looks valid. I tried it on a few more images and the results were similar. The additional noise values provided a bit more randomness to the boundaries defined by our filter, but we already have a weight that we can apply to our filters to reduce their influence. In addition, they often broke the lake by extending the water to the edge of the image, sometimes even more dramatically than the provided example. It wasn't valuable, so I was happy to cut it and reran the profiler.</p>
+<div class="table-responsive">
+<table class="table">
+<thead>
+<tr>
+<th style="text-align:center">Original Time</th>
+<th style="text-align:center">New Time</th>
+<th style="text-align:center">filename:lineno(function)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">26.841</td>
+<td style="text-align:center">6.942</td>
+<td style="text-align:center">mapGen. py:52(make_noise)  </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This isn't an optimization so much as simply omitting  work, but it was appreciated nonetheless. As expected, it made the function about 4 times faster.</p>
+<p>In addition to this change, I realized that I could apply the filter outside of this large nested loop using NumPy's subtract method instead. That is, instead of:</p>
+<script src="https://gist.github.com/BlairCurrey/f6b63abc76b05551b6a39647928bda60.js"></script>
+<p>I could do something like:</p>
+<script src="https://gist.github.com/BlairCurrey/dfec95702d1cb0fa5af1df157d0b250c.js"></script>
+<p>This meant less work inside our large nested for-loop in python and taking better advantage of NumPy's speed, which can be seen in the new profiler results for <code>make_noise</code>:</p>
+<div class="table-responsive">
+<table class="table">
+<thead>
+<tr>
+<th style="text-align:center">Previous Time</th>
+<th style="text-align:center">New Time</th>
+<th style="text-align:center">filename:lineno(function)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">6.942</td>
+<td style="text-align:center">3.975</td>
+<td style="text-align:center">mapGen. py:52(make_noise)  </td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="refine_world"><code>refine_world</code></h3>
+<script src="https://gist.github.com/BlairCurrey/4f76f651adfd6d9caa592e6891751c4b.js"></script>
+<p>This loops through our matrix again (2,097,152 iterations given a size of 1024 x 2048) to factor in <code>land_bias</code>. Considering <code>land_bias</code> can be 0 — and often will since that is the default — there is no reason to always perform this function. So the first improvement that we can make is to only adjust for <code>land_bias</code> if it is not 0. So in many cases, the 1.489 seconds we observed in our test would be reduced to 0.</p>
+<p>As for improving the runtime when we actually set the bias, my first instinct was to utilize the first nested for-loop we already invested in inside <code>make_noise</code>, but there is a reason we didn't do this in the first place. <code>refine_world</code> occurs after our matrix is normalized to a new range between 0.0 and 1.0. There is no way for us to know the actual range of our noise values before they are all set, so adjusting the values in <code>make_noise</code> would lead to inconsistent results. Fortunately, there is a better solution anyway.</p>
+<p>Again, I missed a much simpler and faster NumPy solution. We can use operators on NumPy arrays to adjust each value instead. After some additional refactoring and adding the <code>land_bias</code> check, the code once in <code>refine_world</code> has been reduced to:</p>
+<script src="https://gist.github.com/BlairCurrey/a2e01be302f46bc14c7d883f8065b5ae.js"></script>
+<p>The runtime for this piece of code shows that even in scenarios where <code>land_bias</code> is not 0, not only does it run faster than all scenarios in the original implementation, but it hardly takes any time all:</p>
+<div class="table-responsive">
+<table class="table">
+<thead>
+<tr>
+<th style="text-align:center">Original Time</th>
+<th style="text-align:center">New Time</th>
+<th style="text-align:center">filename:lineno(function)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1.489</td>
+<td style="text-align:center">0.003</td>
+<td style="text-align:center">mapGen. py:94(refine_world)  </td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="add_color"><code>add_color</code></h3>
+<script src="https://gist.github.com/BlairCurrey/c44278ec3cc7faeb4275f18ea5711d0c.js"></script>
+<p>Once again, we are looping through the entire matrix. This time we are evaluating each pixel and assigning it an RGB value based on the range it falls in.</p>
+<p>In this case we can make use of <a href="https://numpy.org/devdocs/reference/arrays.indexing.html">NumPy's Boolean array indexing</a>. Boolean array indexing is a feature of the NumPy array data structure that allows us to select all values of an array that meet certain conditions. After some additional refactoring and converting to Boolean indexing, I was able to get rid of the nested for-loop and the if statements turned into:</p>
+<script src="https://gist.github.com/BlairCurrey/bfa3f5e76754da1e4f44188d3515397c.js"></script>
+<p>Similar to our <code>refine_world</code> improvements, this drastically reduced runtime.</p>
+<div class="table-responsive">
+<table class="table">
+<thead>
+<tr>
+<th style="text-align:center">Original Time</th>
+<th style="text-align:center">New Time</th>
+<th style="text-align:center">filename:lineno(function)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">4.969</td>
+<td style="text-align:center">0.133</td>
+<td style="text-align:center">mapGen. py:101(add_color)  </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>After these optimizations, I returned to refactoring everything into objects and extending their functionality to support the use of a configuration file. A user can define Perlin noise settings, filters, and save options in the config.ini file. <a href="https://github.com/BlairCurrey/lake-generator/blob/master/src/Config.py">More details on these settings can be found in the documentation here.</a> This file is read and transformed by a <code>Config</code> object, which we can use to create a <code>World</code> object. The <code>World</code> object creates and transforms the matrix according to the configuration, which also informs our World object what to do when we invoke the save method. Instead of executing a script with everything in it, we can just run the <code>main.py</code> file to generate and save an image.</p>
+<script src="https://gist.github.com/BlairCurrey/fedfa079ec1f4e84121cb06111956552.js"></script>
+<p>This <code>World</code> object makes use of our <code>Filter</code> class and creates a <code>Stats</code> object where we can collect and store the unique details of our generated lake. These classes can be found in full <a href="https://github.com/BlairCurrey/lake-generator/tree/master/src">here</a>.</p>
+<h3 id="final-runtime-results">Final Runtime Results</h3>
+<p>After refactoring and optimizing I ran the profiler a final time.</p>
+<div class="table-responsive">
+<table class="table">
+<thead>
+<tr>
+<th style="text-align:center">Calls</th>
+<th style="text-align:center">Time</th>
+<th style="text-align:center">Per Call</th>
+<th style="text-align:center">Cumulative Time</th>
+<th style="text-align:center">filename:lineno(function)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.001</td>
+<td style="text-align:center">0.001</td>
+<td style="text-align:center">4.039</td>
+<td style="text-align:center">World. py:14(__init__)</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.003</td>
+<td style="text-align:center">0.003</td>
+<td style="text-align:center">3.877</td>
+<td style="text-align:center">World. py:22(__get_height_matrix)</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1.004</td>
+<td style="text-align:center">1.004</td>
+<td style="text-align:center">3.765</td>
+<td style="text-align:center">World. py:37(__get_noise)</td>
+</tr>
+<tr>
+<td style="text-align:center">2097152</td>
+<td style="text-align:center">2.761</td>
+<td style="text-align:center">0.000</td>
+<td style="text-align:center">2.761</td>
+<td style="text-align:center">{built-in method noise._perlin.noise3}</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.132</td>
+<td style="text-align:center">0.132</td>
+<td style="text-align:center">0.132</td>
+<td style="text-align:center">World. py:81(__get_rgb_matrix)</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1.607</td>
+<td style="text-align:center">1.607</td>
+<td style="text-align:center">1.607</td>
+<td style="text-align:center">{built-in method nt.system}</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.019</td>
+<td style="text-align:center">0.019</td>
+<td style="text-align:center">0.019</td>
+<td style="text-align:center">World. py:63(__get_filtered_and_constrained)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="conclusions-and-further-improvements">Conclusions and Further Improvements</h3>
+<p>Most of the running time came from 3 nested for-loops. We eliminated 2 of these and reduced the number of iterations of the third by 75%. I was able to accomplish this by leveraging NumPy's built-in functions and operators and eliminating non-value-added work. Overall, the program runs almost 90% faster (35s ⭢ 4s), but there is still room for improvement.</p>
+<p>In particular, I could use a <a href="https://github.com/pvigier/perlin-numpy">vectorized implementation of Perlin noise</a> instead of the noise library. This would require significant refactoring and I may not be able to tweak all the settings as I am doing with the current library (which I find fun). This would probably be the largest improvement to the execution time by a wide margin.</p>
+<p>As for the structure and functionality, some variables are still hard-coded, although they are at least more appropriately defined in our <code>Config</code> class. In particular, it would be nice to make the image size scalable. All the filters are set to a certain size and would need to be resized. This could be implemented in our <code>Filter</code> class when we make the array of values from an image. This demonstrates how encapsulating all logic and data related to unique aspects (in this case, filters) makes our program easier to extend.</p>
+</p>
+    </div>
+</div>
+
+
+      </main>
+      <!-- Footer -->
+      <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="column-sm-12 mx-auto my-2">
+              <a class="designed-by" href="https://github.com/BlairCurrey/blaircurrey.com">Designed and built by Blair Currey <i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+
+  <!-- Bootstrap requirements: jquery, popper, bootstrap js plugins -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="/js/main.js"></script>
+</html>
