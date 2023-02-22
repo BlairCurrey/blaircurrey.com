@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blair Currey</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+      :root {
+        /* Purple theme */
+        --purple-900: #2d0036;
+        --purple-800: #4f015b;
+        --purple-700: #730283;
+        --purple-600: #9a02ac;
+        --pink-800: #C400D7;
+        --indigo-900: #1F1A36;
+        --indigo-800: #231E39;
+        --indigo-700: #1e2039;
+        --indigo-600: #2D2747;
+        --bluegrey-100: #B3B8CD;
+        --amber-500: #FEBB0B;
+        --white-100: #ffffff;
+
+        /* Blue theme? */
+        --blue-900: #001A33;
+        --blue-800: #002E5E;
+        --blue-700: #00438C;
+        --blue-600: #0057B8;
+        --cyan-800: #007BC7;
+        /* --blue-900: #000f1e;
+        --blue-800: #001d3c;
+        --blue-700: #002d5b;
+        --blue-600: #004080;
+        --cyan-800: #006aa5; */
+        --green-200: #bdfb3e;
+        --green-300: #a2df1a;
+
+
+        /* 
+          Set Default Theme
+          Names assume color - rename if adding non-color vars.
+          var names progress from 1 (darkest) to 2 (lightest)
+        */
+        /* --bg-1: var(--purple-900);
+        --bg-2: var(--purple-800);
+        --bg-3: var(--purple-700);
+        --bg-4: var(--purple-600);
+        --bg-5: var(--pink-800);
+        --bg-card-1: var(--indigo-900);
+        --bg-card-2: var(--indigo-800);
+        --text-1: var(--bluegrey-100);
+        --text-2: var(--white-100);
+        --highlight: var(--amber-500);
+        --img-border: var(--pink-800);
+        --btn: var(--pink-800);
+        --border-skill: var(--indigo-600); */
+
+        /* Blue theme */
+        --bg-1: var(--blue-900);
+        --bg-2: var(--blue-800);
+        --bg-3: var(--blue-700);
+        --bg-4: var(--blue-600);
+        --bg-5: var(--cyan-800);
+        --bg-card-1: var(--indigo-900);
+        --bg-card-2: var(--indigo-800);
+        --text-1: var(--bluegrey-100);
+        --text-2: var(--white-100);
+        --highlight: var(--green-300);
+        --img-border: var(--cyan-800);
+        --btn: var(--cyan-800);
+        --border-skill: var(--indigo-600);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-image: linear-gradient(to right top, var(--bg-1), var(--bg-2), var(--bg-3), var(--bg-4), var(--bg-5));
+        font-family: Montserrat, sans-serif;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      h3 {
+        margin: 10px 0;
+      }
+
+      h6 {
+        margin: 5px 0;
+        text-transform: uppercase;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 21px;
+      }
+
+      .card {
+        background-color: var(--bg-card-2);
+        border-radius: 25px;
+        box-shadow: 10px 10px 15px rgba(0,0,0,0.35);
+        color: var(--text-1);
+        padding: 30px 0 0;
+        position: relative;
+        width: 350px;
+        max-width: 100%;
+        text-align: center;
+        margin: 20px 0;
+        overflow: hidden;
+      }
+
+      .card .badge {
+        color: var(--bg-card-1);
+        background-color: var(--highlight);
+        border-radius: 3px;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 3px 7px;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+      }
+
+      .card img {
+        border: 1px solid var(--img-border);
+        border-radius: 50%;
+        padding: 7px;
+        height: 150px;
+        width: 150px;
+      }
+
+      button.primary {
+        background-color: var(--btn);
+        border: 1px solid var(--btn);
+        border-radius: 3px;
+        color: var(--text-2);
+        font-family: Montserrat, sans-serif;
+        font-weight: 500;
+        padding: 10px 25px;
+      }
+
+      button.primary.ghost {
+        background-color: transparent;
+        /* color: #C400D7; */
+        color: var(--btn)
+      }
+
+      .skills {
+        background-color: var(--bg-card-1);
+        text-align: left;
+        padding: 15px;
+        margin-top: 30px;
+      }
+
+      .skills ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .skills ul li {
+        border: 1px solid var(--border-skill);
+        border-radius: 2px;
+        display: inline-block;
+        font-size: 12px;
+        margin: 0 7px 7px 0;
+        padding: 7px;
+      }
+    </style>
+</head>
+  <body>
+    <div class="card">
+      <!-- <span class="badge">PRO</span> -->
+      <img src="img/headshot.jpg" alt="profile picture"/>
+      <h3>Blair Currey</h3>
+      <h6>Rockford, MI</h6>
+      <p>Fullstack Software Engineer</p>
+      <div class="buttons">
+          <button class="primary">
+              Message
+          </button>
+          <button class="primary ghost">
+              Follow
+          </button>
+      </div>
+      <div class="skills">
+          <h6>Skills</h6>
+          <ul>
+              <li>UI / UX</li>
+              <li>Front End Development</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Node</li>
+          </ul>
+      </div>
+    </div>
+  </body>
+</html>

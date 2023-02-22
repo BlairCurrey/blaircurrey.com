@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178248960-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-178248960-1');
+    </script>
+
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    
+    <meta name="description" content="Personal website for Blair Currey">
+    <meta name="author" content="Blair Currey">
+    <meta name="keywords" content="Blair, Currey, personal, website, software, engineer, developer" >
+    
+    <!-- Favicon -->
+    <!-- <link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/us-flag-152.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/us-flag-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/us-flag-16.png"> -->
+
+    <link href='https://fonts.googleapis.com/css?family=Inter:400,700,800'; rel='stylesheet' type='text/css'>
+    
+    <!-- Style -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"> -->
+
+    <style>
+      /* @font-face {
+        font-family: Inter;
+        src: url('Inter/Inter-VariableFont_slnt\,wght.ttf');
+      } */
+
+      html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body { 
+        font-family: Inter, Segoi UI, sans-serif;
+        /* background-color: #1d1c1e; */
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      main {
+        min-height: 100vh;
+        margin: 0 128px;
+        display: flex;
+        flex-direction: row;
+      }
+
+      @media only screen and (max-width: 600px) {
+        main {
+          flex-direction: column-reverse;
+          margin: 12px;
+        }
+      }
+      
+      #info {
+        background: #30192B;
+      }
+
+      #info h1{
+        color: #F8FAFC;
+      }
+
+      #headshot-container {
+        height: 100vh;
+        display: flex;
+        /* flex-direction: column; */
+        align-items: flex-end;
+        /* order: 1 */
+      }
+
+      #headshot {
+        height: 90%;
+      }
+
+      #profile-container {
+        display: flex;
+        flex-direction: column;
+        padding: 20vh 12px 12px 12px;
+        width: 100%;
+        align-items: flex-end;
+        order: 2;
+      }
+
+      @media only screen and (max-width: 600px) {
+        #profile-container {
+          align-items: flex-start;
+          padding-top: 12px
+        }
+      }
+
+      h1 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        font-weight: 700;
+        font-size: 84px;
+        /* margin: 1rem 0 */
+        margin: 0;
+      }
+
+      #profile-fields {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-bottom: 24px;
+        color: #515151;
+      }
+
+      #profile-fields h2 {
+        font-weight: 700;
+        font-size: 24px;
+        margin: 0.25rem 0;
+      }
+
+      #btn-container {
+        display: flex;
+        /* width: 100%;
+        justify-content: space-between; */
+        --btn-content-size: 16px;
+      }
+
+      #action-link-container {
+        display: flex;
+        /* width: 100%;
+        justify-content: space-between; */
+        --action-link-content-size: 16px;
+      }
+
+      #action-link-container, a {
+        text-decoration: none;
+      }
+
+      #action-link-container a + a {
+        margin-left: 12px;
+      }
+
+      button {
+        border: 1px solid #374151;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        /* border-radius: 5px 5px 0px 0px; */
+        border-radius: 5px;
+        padding: 8px;
+        /* display: flex;
+        align-items: center; */
+      }
+
+      .action-link {
+        cursor: pointer;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        padding: 8px;
+        background: linear-gradient(-60deg,#8700ff,#ff009e 100%); 
+        /* background: linear-gradient(-60deg, #0055ff, #00aeff 100%); */
+        transition: box-shadow .5s;
+      }
+
+      .action-link:hover {
+        /* box-shadow: 0 0 30px rgb(255 0 158 / 50%);  */
+        box-shadow: 0 0 30px rgb(255 0 158 / 60%); 
+        /* box-shadow: 0 0 30px rgba(0, 100, 255, 0.5); */
+        /* box-shadow: 0 0 30px rgba(50, 50, 100, 50%);  */
+      }
+
+      .action-link-text {
+        color: #FFFFFF;
+        font-size: var(--action-link-content-size);
+        margin-right: 12px;
+        /* display: none; */
+      }
+
+      @media only screen and (max-width: 600px) {
+        .action-link-text {
+          display: none;
+        }
+      }
+
+      .action-link img {
+        height: var(--action-link-content-size);
+      }
+
+      @media only screen and (max-width: 600px) {
+        .action-link img {
+          height: 24px;
+        }
+      }
+
+      #action-link-linkedin {
+        /* background: #0284C7; */
+      }
+
+      #action-link-github {
+        /* background: #16A34A; */
+      }
+
+      #action-link-email {
+        /* background: #DC2626; */
+      }
+
+    /* style for link/button at https://surrealdb.com/
+    height: auto;
+    border: none;
+    outline: 0;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    color: var(--text-color);
+    transition: box-shadow .3s;
+    background: linear-gradient(-60deg,#8700ff 0,#ff009e 100%); 
+    */
+
+    </style>
+
+    <title>Blair Currey</title>
+    
+  </head>
+  <body>
+    <main>
+      <div id="headshot-container">
+        <img id="headshot" src="img/headshot.png">
+      </div>
+      <div id="profile-container">
+        <h1>Blair Currey</h1>
+        <div id="profile-fields">
+          <h2>Software Engineer</h2>
+        </div>
+        <div id="action-link-container">
+          <a href="https://www.linkedin.com/in/blair-currey/">
+            <div id="action-link-linkedin" class="action-link">
+              <span class="action-link-text">Connect</span>
+              <img src="img/linkedin.png">
+            </div>
+          </a>
+          <a href="https://github.com/BlairCurrey">
+            <div id="action-link-github" class="action-link">
+              <span class="action-link-text">Follow</span>
+              <img src="img/github.png">
+            </div>
+          </a>
+          <a href="mailto:curreyb88@gmail.com">
+            <div id="action-link-email" class="action-link">
+              <span class="action-link-text">Contact</span>
+              <img src="img/email.png">
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
