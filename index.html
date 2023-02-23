@@ -5,60 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blair Currey</title>
-    <script src="https://kit.fontawesome.com/c0b836f954.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
       @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
       :root {
-        /* Purple theme */
-        --purple-900: #2d0036;
-        --purple-800: #4f015b;
-        --purple-700: #730283;
-        --purple-600: #9a02ac;
-        --pink-800: #C400D7;
-        --indigo-900: #1F1A36;
-        --indigo-800: #231E39;
-        --indigo-700: #1e2039;
-        --indigo-600: #2D2747;
-        --bluegrey-100: #B3B8CD;
-        --amber-500: #FEBB0B;
-        --white-100: #ffffff;
-
-        /* Blue theme? */
+        /* Default Blue Palette */
         --blue-900: #001A33;
         --blue-800: #002E5E;
         --blue-700: #00438C;
         --blue-600: #0057B8;
         --cyan-800: #007BC7;
-        /* --blue-900: #000f1e;
-        --blue-800: #001d3c;
-        --blue-700: #002d5b;
-        --blue-600: #004080;
-        --cyan-800: #006aa5; */
-        --green-200: #bdfb3e;
+        --indigo-900: #1F1A36;
+        --indigo-800: #231E39;
+        --indigo-700: #1e2039;
+        --indigo-600: #2D2747;
+        --bluegrey-100: #B3B8CD;
+        --white-100: #ffffff;
         --green-300: #a2df1a;
 
+        /* TODO, set purple palette and reference colors from here instead of redefining in themePicker.js */
+        --pink-800: #C400D7;
 
-        /* 
-          Set Default Theme
-          Names assume color - rename if adding non-color vars.
-          var names progress from 1 (darkest) to 2 (lightest)
-        */
-        /* --bg-1: var(--purple-900);
-        --bg-2: var(--purple-800);
-        --bg-3: var(--purple-700);
-        --bg-4: var(--purple-600);
-        --bg-5: var(--pink-800);
-        --bg-card-1: var(--indigo-900);
-        --bg-card-2: var(--indigo-800);
-        --text-1: var(--bluegrey-100);
-        --text-2: var(--white-100);
-        --highlight: var(--amber-500);
-        --img-border: var(--pink-800);
-        --btn: var(--pink-800);
-        --border-skill: var(--indigo-600); */
-
-        /* Blue theme */
+        /* Default theme, can be changed by themePicker.js */
         --bg-1: var(--blue-900);
         --bg-2: var(--blue-800);
         --bg-3: var(--blue-700);
@@ -81,7 +50,6 @@
       body {
         background-image: linear-gradient(to right top, var(--bg-1), var(--bg-2), var(--bg-3), var(--bg-4), var(--bg-5));
         font-family: Montserrat, sans-serif;
-        
         display: flex;
         align-items: center;
         justify-content: center;
@@ -131,6 +99,36 @@
         left: 30px;
       }
 
+      #theme-picker {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20px;
+        position: absolute;
+        top: 25px;
+        left: 25px;
+      }
+
+      #theme-picker .theme {
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+        border: none;
+        border-radius: 50%;
+      }
+
+      #theme-picker i {
+        margin-right: 5px
+      }
+
+      #blue-theme {
+        background-color: var(--cyan-800);
+      }
+
+      #purple-theme {
+        background-color: var(--pink-800);
+      }
+
       .card img {
         border: 1px solid var(--img-border);
         border-radius: 50%;
@@ -139,7 +137,7 @@
         width: 150px;
       }
 
-      button.primary {
+      button {
         cursor: pointer;
       }
 
@@ -184,10 +182,14 @@
         padding: 7px;
       }
     </style>
-</head>
+  </head>
   <body>
     <div class="card">
-      <!-- <span class="badge">PRO</span> -->
+      <div id="theme-picker">
+        <i class="fa-solid fa-palette"></i>
+        <button id='blue-theme' class="theme" onclick="setTheme('blue')"></button>
+        <button id='purple-theme' class="theme" onclick="setTheme('purple')"></button>
+      </div>
       <img src="assets/images/headshot.jpg" alt="profile picture"/>
       <h3>Blair Currey</h3>
       <h6>Rockford, MI</h6>
@@ -206,16 +208,17 @@
       <div class="skills">
           <h6>Skills</h6>
           <ul>
-              <li>UI / UX</li>
-              <li>API Design</li>
-              <li>SQL</li>
               <li>Typescript</li>
               <li>JavaScript</li>
               <li>Node</li>
+              <li>SQL</li>
               <li>Python</li>
               <li>React</li>
+              <li>UI / UX</li>
+              <li>API Design</li>
           </ul>
       </div>
     </div>
+    <script src="assets/js/themePicker.js"></script>
   </body>
 </html>
