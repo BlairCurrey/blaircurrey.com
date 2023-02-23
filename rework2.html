@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blair Currey</title>
+    <script src="https://kit.fontawesome.com/c0b836f954.js" crossorigin="anonymous"></script>
     <style>
       @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
@@ -139,18 +140,25 @@
       }
 
       button.primary {
+        cursor: pointer;
+      }
+
+      button.primary i {
+        padding-left: 5px
+      }
+
+      button.primary {
         background-color: var(--btn);
         border: 1px solid var(--btn);
         border-radius: 3px;
         color: var(--text-2);
         font-family: Montserrat, sans-serif;
         font-weight: 500;
-        padding: 10px 25px;
+        padding: 10px 20px;
       }
 
       button.primary.ghost {
         background-color: transparent;
-        /* color: #C400D7; */
         color: var(--btn)
       }
 
@@ -185,23 +193,27 @@
       <h6>Rockford, MI</h6>
       <p>Fullstack Software Engineer</p>
       <div class="buttons">
+        <a href="https://www.linkedin.com/in/blair-currey/" target="_blank">
           <button class="primary">
-              Message
+              Connect <i class="fa-brands fa-linkedin-in"></i>
           </button>
+        <a href="https://github.com/BlairCurrey" target="_blank">
           <button class="primary ghost">
-              Follow
+              Follow <i class="fa-brands fa-github"></i>
           </button>
+        </a>
       </div>
       <div class="skills">
           <h6>Skills</h6>
           <ul>
               <li>UI / UX</li>
-              <li>Front End Development</li>
-              <li>HTML</li>
-              <li>CSS</li>
+              <li>API Design</li>
+              <li>SQL</li>
+              <li>Typescript</li>
               <li>JavaScript</li>
-              <li>React</li>
               <li>Node</li>
+              <li>Python</li>
+              <li>React</li>
           </ul>
       </div>
     </div>
