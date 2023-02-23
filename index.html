@@ -124,6 +124,11 @@
         border-radius: 50%;
       }
 
+      #theme-picker .theme:disabled {
+        cursor: default;
+        outline: 2px solid var(--bluegrey-100);
+      }
+
       #theme-picker i {
         margin-right: 5px
       }
@@ -185,9 +190,6 @@
   <body>
     <div class="card">
       <div id="theme-picker">
-        <i class="fa-solid fa-palette"></i>
-        <button id='blue-theme' class="theme" onclick="setTheme('blue')"></button>
-        <button id='purple-theme' class="theme" onclick="setTheme('purple')"></button>
       </div>
       <img src="assets/images/headshot.jpg" alt="profile picture"/>
       <h3>Blair Currey</h3>
