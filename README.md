@@ -1,2 +1,2 @@
 # [blaircurrey.com](https://blaircurrey.com)
-My personal website made with [the Eleventy static site generator](https://www.11ty.dev/). A repository of the source files used to generate this website can be found [here](https://github.com/BlairCurrey/blaircurrey.com-source).
+My personal website
