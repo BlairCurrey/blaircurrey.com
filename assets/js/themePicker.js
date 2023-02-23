@@ -29,7 +29,7 @@ PALETTES = {
   '--amber-500': '#FEBB0B',
   '--white-100': '#ffffff'
   }
-}
+};
 
 THEMES = {
   blue: {
@@ -62,14 +62,23 @@ THEMES = {
     '--btn': PALETTES.purple['--pink-800'],
     '--border-skill': PALETTES.purple['--indigo-600']
   }
-}
+};
 
 // theme should be string representing key in THEMES
 function setTheme(themeKey){
-  const { style } = ROOT
+  const { style } = ROOT;
   // const newBG = getComputedStyle(ROOT).getPropertyValue('--bg-1')
   
   Object.keys(THEMES[themeKey]).forEach(cssVar => {
-    style.setProperty(cssVar, THEMES[themeKey][cssVar])
+    style.setProperty(cssVar, THEMES[themeKey][cssVar]);
   })
-}
+
+  localStorage.setItem('themeKey', themeKey);
+};
+
+window.onload = () => {
+  const themeKey = localStorage.getItem('themeKey');
+  if(themeKey){
+    setTheme(themeKey);
+  };
+};
