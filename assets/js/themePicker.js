@@ -16,7 +16,8 @@ THEMES = {
     '--highlight': STYLE.getPropertyValue('--green-300'),
     '--img-border': STYLE.getPropertyValue('--cyan-800'),
     '--btn': STYLE.getPropertyValue('--cyan-800'),
-    '--border-skill': STYLE.getPropertyValue('--indigo-600')
+    '--border-skill': STYLE.getPropertyValue('--indigo-600'),
+    '--theme-btn': STYLE.getPropertyValue('--cyan-800')
   },
   purple: {
     '--bg-1': STYLE.getPropertyValue('--purple-900'),
@@ -31,7 +32,24 @@ THEMES = {
     '--highlight': STYLE.getPropertyValue('--amber-500'),
     '--img-border': STYLE.getPropertyValue('--pink-800'),
     '--btn': STYLE.getPropertyValue('--pink-800'),
-    '--border-skill': STYLE.getPropertyValue('--indigo-600')
+    '--border-skill': STYLE.getPropertyValue('--indigo-600'),
+    '--theme-btn': STYLE.getPropertyValue('--pink-800')
+  },
+  green: {
+    '--bg-1': STYLE.getPropertyValue('--green-900'),
+    '--bg-2': STYLE.getPropertyValue('--green-800'),
+    '--bg-3': STYLE.getPropertyValue('--green-700'),
+    '--bg-4': STYLE.getPropertyValue('--green-600'),
+    '--bg-5': STYLE.getPropertyValue('--lime-800'),
+    '--bg-card-1': STYLE.getPropertyValue('--olive-900'),
+    '--bg-card-2': STYLE.getPropertyValue('--olive-800'),
+    '--text-1': STYLE.getPropertyValue('--grey-100'),
+    '--text-2': STYLE.getPropertyValue('--white-100'),
+    '--highlight': STYLE.getPropertyValue('--yellow-500'),
+    '--img-border': STYLE.getPropertyValue('--lime-800'),
+    '--btn': STYLE.getPropertyValue('--lime-800'),
+    '--border-skill': STYLE.getPropertyValue('--olive-600'),
+    '--theme-btn': STYLE.getPropertyValue('--lime-800')
   }
 };
 
@@ -85,6 +103,7 @@ function renderThemePicker(){
     const button = document.createElement('button');
     button.classList.add('theme');
     button.id = `${themeKey}-theme`;
+    button.style['background-color'] = THEMES[themeKey]['--theme-btn']
     button.onclick = () => setTheme(themeKey);
     themePicker.appendChild(button);
 
