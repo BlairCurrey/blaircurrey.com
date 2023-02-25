@@ -95,7 +95,6 @@
       .card {
         background-color: var(--bg-card-2);
         border-radius: 25px;
-        box-shadow: 10px 10px 15px rgba(0,0,0,0.35);
         color: var(--text-1);
         padding: 30px 0 0;
         position: relative;
@@ -103,10 +102,31 @@
         max-width: 100%;
         text-align: center;
         margin: 20px 0;
-        overflow: hidden;
+        transform-style: preserve-3d;
+        transition: transform 0.8s ease-in-out;
+        perspective: 750px;
       }
 
-      .card img {
+      .card-front, .card-back {
+        box-shadow: 10px 10px 15px rgba(0,0,0,0.35);
+        border-radius: 25px;
+        backface-visibility: hidden;
+      }
+
+      .card-back {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        transform: rotateY(180deg);
+        backface-visibility: hidden;
+      }
+
+      .card.flipped {
+        transform: rotateY(180deg);
+      }
+
+      .card #profile-pic {
         border: 1px solid var(--img-border);
         border-radius: 50%;
         padding: 7px;
@@ -142,6 +162,13 @@
         margin-right: 5px
       }
 
+      #flip-btn {
+        cursor: pointer;
+        position: absolute;
+        left: 310px;
+        z-index: 1;
+      }
+
       .buttons a {
         text-decoration: none;
       }
@@ -171,6 +198,7 @@
 
       .skills {
         background-color: var(--bg-card-1);
+        border-radius: 25px;
         text-align: left;
         padding: 15px;
         margin-top: 30px;
@@ -193,39 +221,45 @@
     </style>
   </head>
   <body>
-    <div class="card">
-      <div id="theme-picker">
-        <!-- Added by javascript -->
+    <div id="card" class="card">
+      <!-- TODO: Implement back content and remove disaply: none -->
+      <i id="flip-btn" class="fa-solid fa-repeat" style="display:none"></i>
+      <div class="card-front">
+        <div id="theme-picker">
+          <!-- Added by javascript -->
+        </div>
+        <img id="profile-pic" src="assets/images/headshot.jpg" alt="profile picture"/>
+        <h3>Blair Currey</h3>
+        <h6>Rockford, MI</h6>
+        <p>Fullstack Software Engineer</p>
+        <div class="buttons">
+          <a href="https://www.linkedin.com/in/blair-currey/" target="_blank">
+            <button class="primary">
+                Connect <i class="fa-brands fa-linkedin-in"></i>
+            </button>
+          <a href="https://github.com/BlairCurrey" target="_blank">
+            <button class="primary ghost">
+                Follow <i class="fa-brands fa-github"></i>
+            </button>
+          </a>
+        </div>
+        <div class="skills">
+            <h6>Skills</h6>
+            <ul>
+                <li>Typescript</li>
+                <li>JavaScript</li>
+                <li>Node</li>
+                <li>SQL</li>
+                <li>Python</li>
+                <li>React</li>
+                <li>UI / UX</li>
+                <li>API Design</li>
+            </ul>
+        </div>
       </div>
-      <img src="assets/images/headshot.jpg" alt="profile picture"/>
-      <h3>Blair Currey</h3>
-      <h6>Rockford, MI</h6>
-      <p>Fullstack Software Engineer</p>
-      <div class="buttons">
-        <a href="https://www.linkedin.com/in/blair-currey/" target="_blank">
-          <button class="primary">
-              Connect <i class="fa-brands fa-linkedin-in"></i>
-          </button>
-        <a href="https://github.com/BlairCurrey" target="_blank">
-          <button class="primary ghost">
-              Follow <i class="fa-brands fa-github"></i>
-          </button>
-        </a>
-      </div>
-      <div class="skills">
-          <h6>Skills</h6>
-          <ul>
-              <li>Typescript</li>
-              <li>JavaScript</li>
-              <li>Node</li>
-              <li>SQL</li>
-              <li>Python</li>
-              <li>React</li>
-              <li>UI / UX</li>
-              <li>API Design</li>
-          </ul>
-      </div>
+      <div class="card-back"></div>
     </div>
     <script src="assets/js/themePicker.js"></script>
+    <script src="assets/js/flipCard.js"></script>
   </body>
 </html>
