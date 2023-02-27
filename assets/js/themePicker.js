@@ -103,6 +103,7 @@ function renderThemePicker(){
     const button = document.createElement('button');
     button.classList.add('theme');
     button.id = `${themeKey}-theme`;
+    button.ariaLabel = `change color theme to ${themeKey}`
     button.style['background-color'] = THEMES[themeKey]['--theme-btn']
     button.onclick = () => setTheme(themeKey);
     themePicker.appendChild(button);
