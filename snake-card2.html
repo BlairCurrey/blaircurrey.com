@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Snake Game</title>
+  <style>
+    /* Set the size and background color of the card */
+    .card {
+      width: 600px;
+      height: 400px;
+      background-color: #eee;
+      perspective: 1000px;
+    }
+  
+    /* Set the style of the flip card container */
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+  
+    /* Flip the card on hover */
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+  
+    /* Set the style of the front and back side */
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+  
+    /* Set the style of the front side */
+    .card-front {
+      background-color: #fff;
+    }
+  
+    /* Set the style of the back side */
+    .card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+  <body>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <canvas id="canvas"></canvas>
+        </div>
+        <div class="card-back">
+          <h1>Congratulations!</h1>
+          <p>You have won the game!</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- <script>
+	// Get the canvas element and context
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+
+	// Define some constants for the game
+	const WIDTH = canvas.width;
+	const HEIGHT = canvas.height;
+	const GRID_SIZE = 20;
+	const GRID_WIDTH = WIDTH / GRID_SIZE;
+	const GRID_HEIGHT = HEIGHT / GRID_SIZE;
+
+	// Set up the initial game state
+	var snake = [{x: 5, y: 5}];
+	var food = randomPosition();
+	var direction = "right";
+	var score = 0;
+
+	// Start the game loop
+	setInterval(gameLoop, 100);
+
+	// Handle keyboard input to change direction
+	document.addEventListener("keydown", function(event) {
+		switch (event.keyCode) {
+			case 37:
+				if (direction !== "right") {
+					direction = "left";
+				}
+				break;
+			case 38:
+				if (direction !== "down") {
+					direction = "up";
+				}
+				break;
+			case 39:
+				if (direction !== "left") {
+					direction = "right";
+				}
+				break;
+			case 40:
+				if (direction !== "up") {
+					direction = "down";
+				}
+				break;
+		}
+	});
+
+	// The main game loop
+	function gameLoop() {
+		// Move the snake in the current direction
+		var head = snake[0];
+		switch (direction) {
+			case "left":
+				snake.unshift({x: head.x - 1, y: head.y});
+				break;
+			case "up":
+				snake.unshift({x: head.x, y: head.y - 1});
+				break;
+			case "right":
+				snake.unshift({x: head.x + 1, y: head.y});
+				break;
+			case "down":
+				snake.unshift({x: head.x, y: head.y + 1});
+				break;
+		}
+
+		// Check for collision with the walls
+		if (snake[ -->

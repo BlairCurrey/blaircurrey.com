@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Draw Border Over HTML Element</title>
+    <style>
+      #myElement {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+        /* box-sizing: border-box; */
+        /* border: 6px solid black; */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myElement">This is my element</div>
+    <canvas id="myCanvas"></canvas>
+    <script>
+      const myElement = document.getElementById("myElement");
+      const x = myElement.offsetLeft;
+      const y = myElement.offsetTop;
+      const w = myElement.offsetWidth;
+      const h = myElement.offsetHeight;
+
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+      ctx.strokeStyle = "red";
+      ctx.lineWidth = 4;
+      // need to adjust for line width. perhaps if we made the border and inner border on the card then we would not need to do this?
+      // this also assumes something about the border size (that its pretty small). might be smarter to get the border size property but ultimate may be unecessary if it makes no meaningful visual difference
+      const startX = x - ctx.lineWidth * 2
+      const startY = y - ctx.lineWidth * 2
+      ctx.strokeRect(startX, startY, w, h);
+
+      // ctx.strokeRect(x, y, w, h);
+    </script>
+  </body>
+</html>

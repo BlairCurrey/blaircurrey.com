@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Downwell Clone</title>
+	<style>
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="gameCanvas" width="480" height="320"></canvas>
+	<script>
+		const canvas = document.getElementById("gameCanvas");
+		const ctx = canvas.getContext("2d");
+		const player = {
+			x: canvas.width / 2,
+			y: 0,
+			speed: 5,
+			size: 20,
+		};
+		function gameLoop() {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			player.y += player.speed;
+			ctx.fillStyle = "blue";
+			ctx.fillRect(player.x - player.size / 2, player.y - player.size / 2, player.size, player.size);
+			requestAnimationFrame(gameLoop);
+		}
+		requestAnimationFrame(gameLoop);
+	</script>
+</body>
+</html>
